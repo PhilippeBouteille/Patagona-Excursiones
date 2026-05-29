@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros — Patagona Excursiones</title>
+  <meta name="description" content="Agencia local de Coyhaique, Aysén. Guías certificados, compromiso ambiental y 6+ años de experiencia en la Patagonia chilena.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde-bosque: #1e3328; --verde-medio: #2d4e3a; --verde-claro: #3d6b4e;
+      --verde-musgo: #5a7a5e; --arena: #c4a882; --crema: #f5f0e8;
+      --blanco: #fefcf9; --carbon: #1a1a18; --gris-texto: #4a4a44; --gris-muted: #8a8a80;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--blanco); color: var(--carbon); font-size: 16px; line-height: 1.6; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 3rem;
+      background: rgba(30, 51, 40, 0.97); backdrop-filter: blur(8px);
+    }
+    .nav-logo img { height: 40px; filter: brightness(0) invert(1); }
+    .nav-logo { text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--arena); }
+    .nav-cta { font-size: 0.78rem !important; padding: 0.5rem 1.3rem; border: 1px solid var(--arena); color: var(--arena) !important; transition: background 0.2s, color 0.2s !important; }
+    .nav-cta:hover { background: var(--arena); color: var(--verde-bosque) !important; }
+
+    .hero-nosotros {
+      position: relative; min-height: 500px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-nosotros-bg {
+      position: absolute; inset: 0;
+      background: url('https://patagonaexcursiones.cl/wp-content/uploads/2025/10/nos.jpg') center/cover;
+    }
+    .hero-nosotros-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,22,14,0.9) 0%, rgba(10,22,14,0.4) 60%, rgba(10,22,14,0.1) 100%);
+    }
+    .hero-nosotros-content {
+      position: relative; z-index: 2;
+      padding: 0 3rem 4rem; max-width: 720px;
+    }
+    .breadcrumb { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .breadcrumb a { color: inherit; text-decoration: none; }
+    .breadcrumb a:hover { color: var(--arena); }
+    .hero-nosotros h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; color: white; line-height: 1.1; margin-bottom: 1rem; }
+    .hero-nosotros h1 em { font-style: italic; color: var(--arena); }
+    .hero-nosotros p { font-size: 1rem; color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.75; max-width: 520px; }
+
+    .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde-claro); font-weight: 500; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+    .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--verde-claro); }
+    h2.title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; color: var(--verde-bosque); line-height: 1.15; margin-bottom: 1.25rem; }
+
+    .mision-section { padding: 6rem 3rem; }
+    .mision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .mision-text p { font-size: 1.05rem; color: var(--gris-texto); font-weight: 300; line-height: 1.85; margin-bottom: 1.25rem; }
+    .mision-text blockquote {
+      border-left: 2px solid var(--arena); padding-left: 1.5rem; margin: 2rem 0;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic;
+      color: var(--verde-bosque); line-height: 1.4;
+    }
+    .mision-img { position: relative; }
+    .mision-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+    .mision-img::before { content: ''; position: absolute; top: -1.5rem; right: -1.5rem; bottom: 1.5rem; left: 1.5rem; border: 1px solid var(--arena); z-index: -1; }
+
+    .datos-section { background: var(--verde-bosque); padding: 4rem 3rem; }
+    .datos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .dato { text-align: center; padding: 2.5rem 1.5rem; border-right: 1px solid rgba(255,255,255,0.08); }
+    .dato:last-child { border-right: none; }
+    .dato-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 600; color: var(--arena); line-height: 1; display: block; }
+    .dato-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 0.5rem; display: block; }
+
+    .compromiso-section { padding: 6rem 3rem; background: var(--crema); }
+    .compromiso-intro { max-width: 600px; margin-bottom: 4rem; }
+    .compromiso-intro p { font-size: 0.98rem; color: var(--gris-texto); font-weight: 300; line-height: 1.8; }
+    .compromisos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .compromiso-item { background: white; padding: 2.5rem; }
+    .compromiso-item .icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .compromiso-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--verde-bosque); margin-bottom: 0.75rem; }
+    .compromiso-item p { font-size: 0.88rem; color: var(--gris-texto); font-weight: 300; line-height: 1.7; }
+
+    .red-section { padding: 6rem 3rem; }
+    .red-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .red-col p { font-size: 0.98rem; color: var(--gris-texto); font-weight: 300; line-height: 1.8; margin-bottom: 1.5rem; }
+    .red-lista { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .red-lista li { font-size: 0.92rem; color: var(--gris-texto); font-weight: 300; display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: var(--crema); }
+    .red-lista li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--arena); flex-shrink: 0; }
+
+    .legal-section { background: var(--carbon); padding: 3rem; }
+    .legal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .legal-item label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); display: block; margin-bottom: 0.3rem; }
+    .legal-item span { font-size: 0.88rem; color: rgba(255,255,255,0.65); }
+
+    footer { background: var(--verde-bosque); padding: 2.5rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo img { height: 32px; filter: brightness(0) invert(1); opacity: 0.6; }
+    .footer-text { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--arena); }
+
+    @media (max-width: 900px) {
+      nav { padding: 0.85rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero-nosotros-content { padding: 0 1.5rem 3.5rem; }
+      .mision-section, .compromiso-section, .red-section { padding: 4rem 1.5rem; }
+      .datos-section { padding: 3rem 1.5rem; }
+      .mision-grid, .red-grid { grid-template-columns: 1fr; }
+      .mision-img { display: none; }
+      .datos-grid { grid-template-columns: repeat(2, 1fr); }
+      .dato:nth-child(2) { border-right: none; }
+      .compromisos-grid { grid-template-columns: 1fr; }
+      .legal-grid { grid-template-columns: 1fr; }
+      .legal-section { padding: 2rem 1.5rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="https://patagonaexcursiones.cl/wp-content/uploads/2025/11/PATAGONALOGO180.png" alt="Patagona Excursiones"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html" class="active">Nosotros</a></li>
+      <li><a href="excursiones.html">Excursiones</a></li>
+      <li><a href="carretera-austral.html">Carretera Austral</a></li>
+      <li><a href="contacto.html" class="nav-cta">Contáctenos</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero-nosotros">
+    <div class="hero-nosotros-bg"></div>
+    <div class="hero-nosotros-content">
+      <div class="breadcrumb"><a href="index.html">Inicio</a><span>›</span><span>Nosotros</span></div>
+      <h1>Somos de <em>aquí.</em><br>Conocemos cada rincón.</h1>
+      <p>Patagona Excursiones nació en Coyhaique con una convicción: que la mejor forma de conocer la Patagonia es con quienes la viven todos los días.</p>
+    </div>
+  </header>
+
+  <section class="mision-section" aria-labelledby="mision-titulo">
+    <div class="mision-grid">
+      <div class="mision-text">
+        <p class="section-label">Quiénes somos</p>
+        <h2 class="title" id="mision-titulo">Agencia local.<br>Compromiso real.</h2>
+        <p>Patagona Excursiones es una agencia de turismo con casa matriz en Coyhaique, Región de Aysén. Nuestra misión es crear experiencias auténticas que conecten a las personas con la naturaleza, la cultura y la comunidad de Aysén.</p>
+        <blockquote>"Somos una empresa regional comprometida con el turismo seguro, sustentable y transformador."</blockquote>
+        <p>Trabajamos con guías profesionales certificados, priorizamos la seguridad en cada excursión y seleccionamos cuidadosamente los recorridos para que cada experiencia sea memorable y responsable.</p>
+      </div>
+      <div class="mision-img">
+        <img src="https://patagonaexcursiones.cl/wp-content/uploads/2025/10/nos.jpg" alt="Equipo Patagona Excursiones en terreno" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <div class="datos-section" role="region" aria-label="Cifras clave">
+    <div class="datos-grid">
+      <div class="dato"><span class="dato-num">6+</span><span class="dato-label">Años en operación</span></div>
+      <div class="dato"><span class="dato-num">19</span><span class="dato-label">Excursiones activas</span></div>
+      <div class="dato"><span class="dato-num">6</span><span class="dato-label">Limpiezas Río Simpson</span></div>
+      <div class="dato"><span class="dato-num">1%</span><span class="dato-label">Utilidades a reforestación</span></div>
+    </div>
+  </div>
+
+  <section class="compromiso-section" aria-labelledby="compromiso-titulo">
+    <div class="compromiso-intro">
+      <p class="section-label">Nuestros pilares</p>
+      <h2 class="title" id="compromiso-titulo">Compromiso ambiental y social</h2>
+      <p>Desde el primer día operamos con un fuerte compromiso hacia el medio ambiente y la comunidad local. No son palabras — son acciones concretas y medibles.</p>
+    </div>
+    <div class="compromisos-grid">
+      <div class="compromiso-item">
+        <div class="icon">🌿</div>
+        <h3>Reforestación nativa</h3>
+        <p>El 1% de nuestras utilidades netas se destina a reforestación con árboles nativos y limpieza de ríos en la Patagonia de Aysén.</p>
+      </div>
+      <div class="compromiso-item">
+        <div class="icon">🌊</div>
+        <h3>Limpieza del Río Simpson</h3>
+        <p>Llevamos 6 años consecutivos organizando y participando en la limpieza del Río Simpson. El río que cruza Coyhaique es nuestro compromiso tangible con el territorio.</p>
+      </div>
+      <div class="compromiso-item">
+        <div class="icon">🤝</div>
+        <h3>Apoyo a operadores locales</h3>
+        <p>Colaboramos con guías y operadores locales, funcionamos como vitrina y canal de venta para experiencias de la región, fortaleciendo la economía local.</p>
+      </div>
+      <div class="compromiso-item">
+        <div class="icon">🏔</div>
+        <h3>Turismo seguro y certificado</h3>
+        <p>Registrados en Sernatur. Miembros de AGAP (Asociación de Guías Patagonia Aysén) y Ag Turismo Puerto Guadal. Sello de Calidad Turística y sistema SIGO.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="red-section" aria-labelledby="red-titulo">
+    <div class="red-grid">
+      <div class="red-col">
+        <p class="section-label">Nuestros diferenciadores</p>
+        <h2 class="title" id="red-titulo">¿Por qué elegirnos?</h2>
+        <p>Somos locales. Eso significa que conocemos los mejores momentos del año para cada excursión, los accesos que otros no conocen, y las historias que solo se cuentan en persona.</p>
+        <p>Nuestros guías están certificados tanto en turismo como en aventura. Todos poseen formación en primeros auxilios para zonas agrestes.</p>
+      </div>
+      <div>
+        <p class="section-label">Red de colaboraciones</p>
+        <h2 class="title">Trabajamos con</h2>
+        <ul class="red-lista">
+          <li>Municipios y Corporaciones de Deportes</li>
+          <li>CONAF y programas de reforestación</li>
+          <li>Operadores locales de toda la Carretera Austral</li>
+          <li>Escuelas, gremios y clubes deportivos</li>
+          <li>Artesanos y proveedores regionales</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="legal-section" role="region" aria-label="Datos legales">
+    <div class="legal-grid">
+      <div class="legal-item">
+        <label>Razón social</label>
+        <span>Patagona Excursiones SpA</span>
+      </div>
+      <div class="legal-item">
+        <label>RUT</label>
+        <span>76.341.705-0</span>
+      </div>
+      <div class="legal-item">
+        <label>Representante Legal</label>
+        <span>Marcela Andrea Ríos Foitzick</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <a href="index.html" class="footer-logo"><img src="https://patagonaexcursiones.cl/wp-content/uploads/2025/11/PATAGONALOGO180.png" alt="Patagona Excursiones"></a>
+    <p class="footer-text">© 2026 Patagona Excursiones · Coyhaique, Aysén</p>
+    <nav class="footer-links">
+      <a href="nosotros.html">Nosotros</a>
+      <a href="excursiones.html">Excursiones</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </footer>
+</body>
+</html>
