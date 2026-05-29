@@ -43,13 +43,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.25rem 3rem;
+      padding: 1.1rem 3rem;
+      background: rgba(20, 40, 28, 0.55);
+      backdrop-filter: blur(6px);
       transition: background 0.4s, padding 0.4s;
     }
     nav.scrolled {
       background: rgba(30, 51, 40, 0.97);
       padding: 0.85rem 3rem;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
     }
     .nav-logo {
       display: flex;
@@ -59,7 +61,8 @@
     }
     .nav-logo img {
       height: 44px;
-      filter: brightness(0) invert(1);
+      mix-blend-mode: screen;
+      opacity: 0.92;
     }
     .nav-links {
       display: flex;
@@ -834,7 +837,7 @@
     }
     .footer-logo img {
       height: 36px;
-      filter: brightness(0) invert(1);
+      mix-blend-mode: screen;
       opacity: 0.7;
     }
     .footer-text {
@@ -914,7 +917,7 @@
     </div>
     <div class="hero-content">
       <p class="hero-eyebrow">Coyhaique · Aysén · Patagonia chilena</p>
-      <h1>La Patagonia <em>que pocos</em><br>se atreven a conocer</h1>
+      <h1>La Patagonia <em>que pocos</em> se atreven a conocer</h1>
       <p class="hero-desc">Excursiones auténticas, guías certificados y compromiso real con la tierra y la comunidad de Aysén.</p>
       <div class="hero-actions">
         <a href="excursiones.html" class="btn-primary">Ver excursiones</a>
